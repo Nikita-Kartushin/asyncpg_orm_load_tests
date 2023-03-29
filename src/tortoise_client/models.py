@@ -19,8 +19,8 @@ class Tortoise_B(BaseModel):
     tbc_str = fields.TextField()
     tbc_fk_ta = fields.ForeignKeyField(
         'models.Tortoise_A',
-        related_name='tbc',
-        on_delete=fields.SET_NULL
+        related_name='tb',
+        on_delete=fields.CASCADE
     )
 
 
@@ -28,8 +28,8 @@ class Tortoise_C(BaseModel):
     tcc_str = fields.TextField()
     tbc_fk_ta = fields.ForeignKeyField(
         'models.Tortoise_B',
-        related_name='tbc',
-        on_delete=fields.SET_NULL
+        related_name='tc',
+        on_delete=fields.CASCADE
     )
 
 
@@ -38,6 +38,6 @@ class Tortoise_D(BaseModel):
 
     tbc_fk_ta = fields.ManyToManyField(
         'models.Tortoise_A',
-        related_name='tbc',
-        on_delete=fields.SET_NULL
+        related_name='td',
+        on_delete=fields.CASCADE
     )
